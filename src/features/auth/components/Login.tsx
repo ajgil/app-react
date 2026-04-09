@@ -6,6 +6,8 @@ import React, { useState } from "react";
 // import line3 from "../assets/line-3.svg";
 // import vector from "../assets/vector.svg";
 
+import demoLogo from "../../../assets/demo_logo.png";
+
 interface LoginProps {
   onRegisterClick: () => void;
   onLoginSuccess: () => void;
@@ -23,12 +25,11 @@ export const Login: React.FC<LoginProps> = ({ onRegisterClick, onLoginSuccess })
   return (
     <div className="flex flex-col w-full max-w-[520px] items-start gap-[52px] relative animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Brand/Logo Section */}
-      <div className="relative w-[197px] h-10">
-        <div className="absolute w-[10.52%] h-[100.00%] top-0 left-[7.11%] bg-[url('/ellipse-9.svg')] bg-[100%_100%]" />
-        <div className="absolute w-[34.01%] h-[60.00%] top-[20.00%] left-[25.75%] font-bold text-[#062046] text-2xl tracking-[0] leading-6 whitespace-nowrap">
+      <div className="flex items-center gap-3 relative h-10">
+        <img src={demoLogo} alt="Maria Logo" className="h-full w-auto object-contain" />
+        <span className="font-heading-md font-bold text-textdark tracking-tight">
           Maria
-        </div>
-        <div className="absolute w-[7.11%] h-full top-0 left-0 bg-primary-600 rounded-sm" />
+        </span>
       </div>
 
       <div className="flex-col gap-12 flex items-start relative self-stretch w-full flex-[0_0_auto]">

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 // import image from "./image.svg";
 // import vector from "./vector.svg";
 
+import demoLogo from "../../../assets/demo_logo.png";
+
 interface RoleSelectionProps {
   onRoleSelected: (role: "crew" | "employer") => void;
 }
@@ -38,6 +40,13 @@ export const RoleSelection: React.FC<RoleSelectionProps> = ({ onRoleSelected }) 
 
   return (
     <div className="flex flex-col w-full max-w-[520px] items-start gap-[52px] relative animate-in fade-in slide-in-from-bottom-4 duration-500">
+      {/* Brand/Logo Section */}
+      <div className="flex items-center gap-3 relative h-10">
+        <img src={demoLogo} alt="Maria Logo" className="h-full w-auto object-contain" />
+        <span className="font-heading-md font-bold text-textdark tracking-tight">
+          Maria
+        </span>
+      </div>
       <div className="flex flex-col items-start gap-12 relative self-stretch w-full flex-[0_0_auto]">
         <div className="inline-flex flex-col items-start gap-3 relative flex-[0_0_auto]">
           <h1 className="relative w-fit mt-[-1.00px] font-heading-xxl font-bold text-textdark text-[length:var(--heading-xxl-font-size)] tracking-[var(--heading-xxl-letter-spacing)] leading-[var(--heading-xxl-line-height)] whitespace-nowrap">

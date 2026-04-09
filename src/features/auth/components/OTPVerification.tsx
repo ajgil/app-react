@@ -1,5 +1,7 @@
 import React, { type ClipboardEvent, type KeyboardEvent, useRef, useState } from "react";
 
+import demoLogo from "../../../assets/demo_logo.png";
+
 interface OTPVerificationProps {
   email: string;
   onVerify: (code: string) => void;
@@ -64,12 +66,11 @@ export const OTPVerification: React.FC<OTPVerificationProps> = ({
   return (
     <div className="flex flex-col w-full max-w-[520px] items-start gap-[52px] relative animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Brand/Logo Section */}
-      <div className="relative w-[197px] h-10">
-        <div className="absolute w-[10.52%] h-[100.00%] top-0 left-[7.11%] bg-[url('/ellipse-9.svg')] bg-[100%_100%]" />
-        <div className="absolute w-[34.01%] h-[60.00%] top-[20.00%] left-[25.75%] font-bold text-[#062046] text-2xl tracking-[0] leading-6 whitespace-nowrap">
+      <div className="flex items-center gap-3 relative h-10">
+        <img src={demoLogo} alt="Maria Logo" className="h-full w-auto object-contain" />
+        <span className="font-heading-md font-bold text-textdark tracking-tight">
           Maria
-        </div>
-        <div className="absolute w-[7.11%] h-full top-0 left-0 bg-primary-600 rounded-sm" />
+        </span>
       </div>
 
       <div className="flex flex-col items-start gap-12 w-full relative self-stretch">
@@ -105,7 +106,7 @@ export const OTPVerification: React.FC<OTPVerificationProps> = ({
                     <input
                       key={index}
                       id={`otp-input-${index}`}
-                      ref={(el) => (inputRefs.current[index] = el)}
+                      ref={(el) => { inputRefs.current[index] = el; }}
                       type="text"
                       inputMode="numeric"
                       maxLength={1}

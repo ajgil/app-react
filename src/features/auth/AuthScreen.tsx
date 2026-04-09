@@ -5,13 +5,19 @@ import { OTPVerification } from "./components/OTPVerification";
 import { RoleSelection } from "./components/RoleSelection";
 import { CrewOnboarding } from "../crew/onboarding/CrewOnboarding";
 import { RecruiterOnboarding } from "../recruiter/onboarding/RecruiterOnboarding";
+import { LanguageSelector } from "../../components/common/LanguageSelector";
 
 export const AuthScreen: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSuccess }) => {
   const [currentView, setCurrentView] = useState<"login" | "signup" | "otp" | "selection" | "onboarding-crew" | "onboarding-recruiter">("login");
   const [email, setEmail] = useState("user@example.com");
 
   return (
-    <div className="min-h-screen w-screen flex items-center justify-center bg-[#F9FAFB] p-6">
+    <div className="min-h-screen w-screen flex items-center justify-center bg-[#F9FAFB] p-6 relative overflow-hidden">
+      {/* Top Controls */}
+      <div className="fixed top-8 left-8 z-[60]">
+        <LanguageSelector />
+      </div>
+
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#062046_1px,transparent_1px)] [background-size:20px_20px]" />
       
       <div className="w-full max-w-[696px] z-10 flex justify-center">
