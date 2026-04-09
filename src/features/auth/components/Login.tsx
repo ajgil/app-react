@@ -1,25 +1,15 @@
 import React, { useState } from "react";
-// Nota: Asegúrate de que estos assets existan en la carpeta o actualiza las rutas
-// import googleIcon from "../assets/google-icon.svg";
-// import line1 from "../assets/line-1.svg";
-// import line2 from "../assets/line-2.svg";
-// import line3 from "../assets/line-3.svg";
-// import vector from "../assets/vector.svg";
-
+import { useNavigate, Link } from "react-router-dom";
 import demoLogo from "../../../assets/demo_logo.png";
 
-interface LoginProps {
-  onRegisterClick: () => void;
-  onLoginSuccess: () => void;
-}
-
-export const Login: React.FC<LoginProps> = ({ onRegisterClick, onLoginSuccess }) => {
+export const Login: React.FC = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
 
   const handleContinue = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica de login real
-    onLoginSuccess();
+    // In a real app, we would authenticate here
+    navigate("/dashboard");
   };
 
   return (
@@ -86,13 +76,12 @@ export const Login: React.FC<LoginProps> = ({ onRegisterClick, onLoginSuccess })
             <div className="relative w-full h-5">
               <p className="absolute top-0 left-0 font-body-md text-neutral-500">
                 <span>Not registered yet?</span>
-                <button
-                  type="button"
-                  onClick={onRegisterClick}
+                <Link
+                  to="/auth/signup"
                   className="ml-1 text-primarysource font-semibold hover:underline"
                 >
                   Create an Account
-                </button>
+                </Link>
               </p>
 {/* <img
   className="absolute top-[18px] left-[135px] w-[124px] h-px object-cover hidden sm:block"

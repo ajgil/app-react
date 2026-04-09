@@ -1,18 +1,12 @@
 import React, { type ClipboardEvent, type KeyboardEvent, useRef, useState } from "react";
-
+import { useNavigate, useLocation } from "react-router-dom";
 import demoLogo from "../../../assets/demo_logo.png";
 
-interface OTPVerificationProps {
-  email: string;
-  onVerify: (code: string) => void;
-  onResend: () => void;
-}
+export const OTPVerification: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const email = location.state?.email || "user@example.com";
 
-export const OTPVerification: React.FC<OTPVerificationProps> = ({
-  email = "user@example.com",
-  onVerify,
-  onResend
-}) => {
   const [otp, setOtp] = useState<string[]>(["", "", "", "", "", ""]);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
@@ -51,14 +45,15 @@ export const OTPVerification: React.FC<OTPVerificationProps> = ({
   const handleVerifyClick = () => {
     const code = otp.join("");
     if (code.length === 6) {
-      onVerify(code);
+      console.log("Verificando:", code);
+      navigate("/auth/role-selection");
     }
   };
 
   const handleResendClick = () => {
     setOtp(["", "", "", "", "", ""]);
     inputRefs.current[0]?.focus();
-    onResend();
+    console.log("Reenviando...");
   };
 
   const isComplete = otp.every((d) => d !== "");
@@ -92,7 +87,7 @@ export const OTPVerification: React.FC<OTPVerificationProps> = ({
               <div className="flex flex-col items-start gap-2 relative self-stretch w-full">
                 <label
                   htmlFor="otp-input-0"
-                  className="relative w-fit mt-[-1.00px] font-label-lg font-semibold text-textdark text-[length:var(--label-lg-font-size)] tracking-[var(--label-lg-letter-spacing)] leading-[var(--label-lg-line-height)] whitespace-nowrap"
+                  className="relative w-fit mt-[-1.00px] font-label-lg font-semibold text-textdark"
                 >
                   Enter 6-digit verification code
                 </label>

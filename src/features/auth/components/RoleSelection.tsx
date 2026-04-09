@@ -1,21 +1,12 @@
 import React, { useState } from "react";
-
-// Nota: Asegúrate de que estos assets existan o usa iconos de librería
-// import image from "./image.svg";
-// import vector from "./vector.svg";
-
+import { useNavigate } from "react-router-dom";
 import demoLogo from "../../../assets/demo_logo.png";
-
-interface RoleSelectionProps {
-  onRoleSelected: (role: "crew" | "employer") => void;
-}
 
 const options = [
   {
     id: "crew",
     title: "Crew Member",
     description: "Looking for yacht positions",
-    // icon: vector,
     iconWidth: "w-[18px]",
     alt: "Crew icon",
   },
@@ -23,18 +14,20 @@ const options = [
     id: "employer",
     title: "Captain / Recruiter",
     description: "Hiring yacht crew",
-    // icon: image,
     iconWidth: "w-[19.5px]",
     alt: "Employer icon",
   },
 ];
 
-export const RoleSelection: React.FC<RoleSelectionProps> = ({ onRoleSelected }) => {
+export const RoleSelection: React.FC = () => {
+  const navigate = useNavigate();
   const [selected, setSelected] = useState<"crew" | "employer" | null>(null);
 
   const handleContinue = () => {
-    if (selected) {
-      onRoleSelected(selected);
+    if (selected === "crew") {
+      navigate("/onboarding/crew");
+    } else if (selected === "employer") {
+      navigate("/onboarding/recruiter");
     }
   };
 
@@ -71,22 +64,17 @@ export const RoleSelection: React.FC<RoleSelectionProps> = ({ onRoleSelected }) 
               }`}
             >
               <div className="inline-flex flex-col items-start gap-1 absolute top-[50%] -translate-y-1/2 left-[88px]">
-                <div className="relative w-fit font-heading-sm font-bold text-textdark text-[length:var(--heading-sm-font-size)] tracking-[var(--heading-sm-letter-spacing)] leading-[var(--heading-sm-line-height)] whitespace-nowrap">
+                <div className="relative w-fit font-heading-sm font-bold text-textdark underline decoration-transparent">
                   {option.title}
                 </div>
 
-                <div className="relative w-fit font-title-sm font-medium text-neutral-500 text-[length:var(--title-sm-font-size)] tracking-[var(--title-sm-letter-spacing)] leading-[var(--title-sm-line-height)] whitespace-nowrap">
+                <div className="relative w-fit font-title-sm font-medium text-neutral-500">
                   {option.description}
                 </div>
               </div>
 
               <div className="absolute top-[50%] -translate-y-1/2 left-[18px] w-[50px] h-[50px] flex items-center justify-center bg-neutral-100 rounded-md overflow-hidden aspect-[1]">
                 <div className="h-6 w-6 flex items-center justify-center">
-                  {/* <img
-                    className={`flex-1 ${option.iconWidth}`}
-                    alt={option.alt}
-                    src={option.icon}
-                  /> */}
                   <div className={`w-5 h-5 rounded-full border-2 ${selected === option.id ? 'border-primarysource bg-primary-50' : 'border-neutral-300'}`} />
                 </div>
               </div>
