@@ -66,12 +66,17 @@ const CrewDashboardAvailableNow: FC = () => {
       <SidebarOpen />
       <main className="flex-1 flex flex-col items-start gap-[26px] max-w-[calc(100%_-_260px)] lg:max-w-full">
         <FrameComponent />
+        
+        {/* Row 1: Cards - 100% width */}
         <section className="w-[1144px] flex items-start py-0 px-6 box-border max-w-full">
           <Cards />
         </section>
+
+        {/* Row 2: Split 80% / 20% */}
         <section className="w-[1144px] flex items-start py-0 px-6 box-border max-w-full">
           <div className="flex-1 flex items-start gap-6 max-w-full lg:flex-wrap">
-            <section className="flex-1 flex flex-col items-start gap-8 min-w-[494px] max-w-full text-left text-sm text-[#393939] font-body-lg sm:gap-4 sm:min-w-full">
+            {/* Main Content Column - 8 Columns (80%) */}
+            <section className="flex-[8] flex flex-col items-start gap-8 min-w-[494px] max-w-full text-left text-sm text-[#393939] font-body-lg sm:gap-4 sm:min-w-full">
               <div className="self-stretch h-[200px] rounded-xl bg-[rgba(41,163,122,0.08)] border-[rgba(41,163,122,0.5)] border-solid border-[1px] box-border flex flex-col items-start py-[26px] px-[27px]">
                 <div className="self-stretch flex flex-col items-start gap-5">
                   <div className="self-stretch flex items-center justify-between gap-5 text-lg sm:flex-wrap sm:gap-5">
@@ -94,7 +99,7 @@ const CrewDashboardAvailableNow: FC = () => {
                             src="/proicons-clock.svg"
                           />
                           <div className="relative tracking-[0.25px] leading-5">
-                            Expires in 15 days
+                            Expires in 15 days
                           </div>
                         </div>
                       </div>
@@ -133,6 +138,7 @@ const CrewDashboardAvailableNow: FC = () => {
                   </div>
                 </div>
               </div>
+
               <div className="self-stretch flex flex-col items-start gap-4 text-xl text-[#212121]">
                 <div className="self-stretch flex items-center justify-between gap-5 sm:flex-wrap sm:gap-5">
                   <div className="flex items-center gap-[11px]">
@@ -180,145 +186,113 @@ const CrewDashboardAvailableNow: FC = () => {
                 </div>
               </div>
             </section>
-            <section className="flex flex-col items-start gap-7 text-left text-lg text-[#393939] font-body-lg lg:flex-1">
-              <div className="self-stretch h-[306px] shadow-[2px_2px_8px_1px_rgba(33,_33,_33,_0.08)] rounded-xl bg-[#fff] border-[#f3f3f3] border-solid border-[1px] box-border flex flex-col items-start py-[26px] px-[27px] gap-6">
-                <div className="w-[256px] flex items-center justify-between gap-5">
-                  <div className="relative leading-6 font-semibold">
-                    Profile Completion
+
+            {/* Right Side Column - 2 Columns (20%) */}
+            <section className="flex-[2] flex flex-col items-start gap-7 text-left text-lg text-[#393939] font-body-lg min-w-[240px] lg:flex-1">
+              <div className="self-stretch shadow-[2px_2px_8px_1px_rgba(33,_33,_33,_0.08)] rounded-xl bg-[#fff] border-[#f3f3f3] border-solid border-[1px] box-border flex flex-col items-start py-[26px] px-[27px] gap-6">
+                <div className="self-stretch flex flex-col items-start gap-2">
+                  <div className="self-stretch flex items-center justify-between gap-2">
+                    <div className="relative leading-6 font-semibold text-sm">
+                      Profile Completion
+                    </div>
+                    <div className="relative text-lg leading-7 font-semibold text-[#1d4ed8]">
+                      60%
+                    </div>
                   </div>
-                  <h3 className="m-0 relative text-2xl leading-7 font-semibold font-[inherit] sm:text-[19px] sm:leading-[22px]">
-                    60%
-                  </h3>
+                  <div className="self-stretch h-[6px] rounded-[99px] bg-[#f4f3f9] overflow-hidden flex items-start">
+                    <div className="h-full w-[60%] relative [background:linear-gradient(91.66deg,_#3b82f6,_#1d4ed8)]" />
+                  </div>
                 </div>
-                <div className="w-[256px] rounded-[99px] bg-[#f4f3f9] overflow-hidden flex items-start">
-                  <div className="h-[6px] w-[163px] relative [background:linear-gradient(91.66deg,_#3b82f6,_#1d4ed8)]" />
-                </div>
-                <div className="w-[116px] flex flex-col items-start gap-3 text-base text-[#5e5e5e]">
+                <div className="self-stretch flex flex-col items-start gap-3 text-sm text-[#5e5e5e]">
                   <div className="flex items-center gap-[7px]">
                     <img
-                      className="w-[20px] relative max-h-full"
+                      className="w-[18px] relative max-h-full"
                       loading="lazy"
                       alt=""
                       src="/mdi-tick-circle.svg"
                     />
-                    <div className="relative tracking-[0.5px] leading-6">
+                    <div className="relative tracking-[0.5px] leading-5">
                       Basic Info
                     </div>
                   </div>
-                  <div className="self-stretch flex items-center gap-2">
+                  <div className="flex items-center gap-[7px]">
                     <img
-                      className="w-[20px] relative max-h-full"
+                      className="w-[18px] relative max-h-full"
                       loading="lazy"
                       alt=""
                       src="/mdi-tick-circle.svg"
                     />
-                    <div className="relative tracking-[0.5px] leading-6">
+                    <div className="relative tracking-[0.5px] leading-5">
                       Experience
                     </div>
                   </div>
-                  <div className="self-stretch flex items-center gap-[7px]">
+                  <div className="flex items-center gap-[7px]">
                     <img
-                      className="w-[20px] relative max-h-full shrink-0"
+                      className="w-[18px] relative max-h-full"
                       loading="lazy"
                       alt=""
                       src="/mdi-tick-circle.svg"
                     />
-                    <div className="relative tracking-[0.5px] leading-6 shrink-0">
+                    <div className="relative tracking-[0.5px] leading-5">
                       Certificates
                     </div>
                   </div>
-                  <div className="self-stretch flex items-center gap-2">
+                  <div className="flex items-center gap-[7px]">
                     <img
-                      className="w-[20px] relative max-h-full shrink-0"
+                      className="w-[18px] relative max-h-full"
                       loading="lazy"
                       alt=""
                       src="/material-symbols-light-circle-outline.svg"
                     />
-                    <div className="relative tracking-[0.5px] leading-6 shrink-0">
+                    <div className="relative tracking-[0.5px] leading-5">
                       Documents
-                    </div>
-                  </div>
-                  <div className="self-stretch flex items-center gap-2">
-                    <img
-                      className="w-[20px] relative max-h-full"
-                      alt=""
-                      src="/material-symbols-light-circle-outline.svg"
-                    />
-                    <div className="relative tracking-[0.5px] leading-6">
-                      CV Review
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="self-stretch h-[228px] shadow-[2px_2px_8px_1px_rgba(33,_33,_33,_0.08)] rounded-xl [background:linear-gradient(91.66deg,_#3b82f6,_#1d4ed8)] border-[#f3f3f3] border-solid border-[1px] box-border flex flex-col items-start py-[22px] px-[23px] gap-5 text-[#fff]">
+              
+              <div className="self-stretch shadow-[2px_2px_8px_1px_rgba(33,_33,_33,_0.08)] rounded-xl [background:linear-gradient(91.66deg,_#3b82f6,_#1d4ed8)] border-[#f3f3f3] border-solid border-[1px] box-border flex flex-col items-start py-[22px] px-[23px] gap-5 text-[#fff]">
                 <div className="flex items-center gap-3">
                   <img
-                    className="w-[40px] relative rounded-lg max-h-full"
+                    className="w-[32px] relative rounded-lg max-h-full"
                     loading="lazy"
                     alt=""
                     src="/si-ai-alt-1-line.svg"
                   />
                   <div className="flex flex-col items-start">
-                    <div className="self-stretch flex flex-col items-start">
-                      <div className="relative leading-6 font-semibold">
-                        Maria AI Advisor
-                      </div>
+                    <div className="relative leading-5 font-semibold text-sm">
+                      Maria AI
                     </div>
-                    <div className="relative text-xs tracking-[0.4px] leading-4 text-[#dedbec]">
-                      Get personalized guidance
+                    <div className="relative text-[10px] tracking-[0.4px] leading-3 text-[#dedbec]">
+                      AI Advisor
                     </div>
                   </div>
                 </div>
-                <div className="w-[264px] h-[60px] relative text-sm tracking-[0.25px] leading-5 text-[#f3f3f3] flex items-center">
-                  I've reviewed your profile and have some suggestions to
-                  increase your match rate by 15%.
+                <div className="self-stretch text-xs tracking-[0.25px] leading-4 text-[#f3f3f3]">
+                  I've reviewed your profile and have some suggestions...
                 </div>
-                <button className="cursor-pointer [border:none] py-2.5 px-10 bg-[#1e40af] w-[264px] shadow-[0px_8px_16px_rgba(143,_149,_178,_0.15)] rounded-lg flex items-center justify-center box-border hover:bg-[#4566d6]">
-                  <div className="relative text-sm tracking-[0.1px] leading-5 font-medium font-body-lg text-[#fff] text-left">
+                <button className="cursor-pointer [border:none] py-2 px-3 bg-[#1e40af] self-stretch shadow-[0px_8px_16px_rgba(143,_149,_178,_0.15)] rounded-lg flex items-center justify-center box-border hover:bg-[#4566d6]">
+                  <div className="relative text-xs tracking-[0.1px] leading-4 font-medium font-body-lg text-[#fff] text-left">
                     Chat with Maria
                   </div>
                 </button>
               </div>
-              <div className="self-stretch h-[196px] shadow-[2px_2px_8px_1px_rgba(33,_33,_33,_0.08)] rounded-xl bg-[#fff] border-[#f3f3f3] border-solid border-[1px] box-border flex items-start py-[26px] px-7">
-                <div className="w-[240px] flex flex-col items-start gap-5">
-                  <div className="self-stretch relative leading-6 font-semibold">
-                    Upcoming
-                  </div>
-                  <div className="self-stretch flex flex-col items-start gap-4 text-sm">
-                    <div className="self-stretch flex items-center gap-3">
-                      <img
-                        className="w-[40px] relative rounded-lg max-h-full"
-                        loading="lazy"
-                        alt=""
-                        src="/Frame-1321318549.svg"
-                      />
-                      <div className="flex flex-col items-start gap-0.5">
-                        <div className="self-stretch flex flex-col items-start">
-                          <div className="relative tracking-[0.1px] leading-5 font-medium">
-                            Interview with M/Y Serenity
-                          </div>
-                        </div>
-                        <div className="relative text-xs tracking-[0.4px] leading-4 text-[#727272]">
-                          Tomorrow, 2:00 PM
-                        </div>
-                      </div>
+
+              <div className="self-stretch shadow-[2px_2px_8px_1px_rgba(33,_33,_33,_0.08)] rounded-xl bg-[#fff] border-[#f3f3f3] border-solid border-[1px] box-border flex flex-col items-start py-[22px] px-[23px] gap-4">
+                <div className="relative text-sm leading-5 font-semibold">
+                  Upcoming
+                </div>
+                <div className="self-stretch flex flex-col items-start gap-4 text-xs">
+                  <div className="flex items-center gap-3">
+                    <div className="h-8 w-8 rounded-lg bg-[#f4f3f9] flex items-center justify-center shrink-0">
+                      <img className="w-5 h-5" alt="" src="/Frame-1321318549.svg" />
                     </div>
-                    <div className="flex items-center gap-3">
-                      <img
-                        className="w-[40px] relative rounded-lg max-h-full"
-                        loading="lazy"
-                        alt=""
-                        src="/Frame-1321318549.svg"
-                      />
-                      <div className="flex flex-col items-start gap-0.5">
-                        <div className="self-stretch flex flex-col items-start">
-                          <div className="relative tracking-[0.1px] leading-5 font-medium">
-                            STCW expires soon
-                          </div>
-                        </div>
-                        <div className="relative text-xs tracking-[0.4px] leading-4 text-[#727272]">
-                          Renew by Feb 28, 2026
-                        </div>
+                    <div className="flex flex-col items-start">
+                      <div className="relative font-medium leading-4">
+                        Interview
+                      </div>
+                      <div className="relative text-[10px] text-[#727272]">
+                        Tomorrow
                       </div>
                     </div>
                   </div>
