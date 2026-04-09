@@ -7,10 +7,11 @@ import { OTPVerification } from './features/auth/components/OTPVerification';
 import { RoleSelection } from './features/auth/components/RoleSelection';
 import { CrewOnboarding } from './features/crew/onboarding/CrewOnboarding';
 import { RecruiterOnboarding } from './features/recruiter/onboarding/RecruiterOnboarding';
+import CrewDashboardAvailableNow from './features/crew/dashboard/CrewDashboardAvailableNow';
 
 function App() {
   // Simple auth state for demo purposes
-  const isLoggedIn = false; 
+  const isLoggedIn = true; // Temporary true to see the dashboard
 
   return (
     <BrowserRouter>
@@ -27,10 +28,14 @@ function App() {
         <Route path="/onboarding/crew" element={<CrewOnboarding onComplete={() => {}} />} />
         <Route path="/onboarding/recruiter" element={<RecruiterOnboarding onComplete={() => {}} />} />
 
-        {/* Protected Dashboard Route */}
+        {/* Dashboard Routes */}
         <Route 
           path="/dashboard" 
           element={isLoggedIn ? <DashboardScreen /> : <Navigate to="/auth/login" replace />} 
+        />
+        <Route 
+          path="/dashboard/crew" 
+          element={<CrewDashboardAvailableNow />} 
         />
 
         {/* Fallback */}

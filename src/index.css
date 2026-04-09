@@ -1,106 +1,34 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600&display=swap");
 
-@layer base {
-
-  button,
-  input,
-  select,
-  textarea {
-    @apply appearance-none bg-transparent border-0 outline-none;
-  }
+@theme {
+  --font-body-lg: var(--body-lg-font-family);
+  --font-body-md: var(--body-md-font-family);
+  --font-body-sm: var(--body-sm-font-family);
+  --font-heading-l: var(--heading-l-font-family);
+  --font-heading-md: var(--heading-md-font-family);
+  --font-heading-sm: var(--heading-sm-font-family);
+  --font-heading-xl: var(--heading-xl-font-family);
+  --font-heading-xs: var(--heading-xs-font-family);
+  --font-heading-xxl: var(--heading-xxl-font-family);
+  --font-label-lg: var(--label-lg-font-family);
+  --font-label-md: var(--label-md-font-family);
+  --font-label-sm: var(--label-sm-font-family);
+  --font-title-lg: var(--title-lg-font-family);
+  --font-title-md: var(--title-md-font-family);
+  --font-title-sm: var(--title-sm-font-family);
 }
 
-@layer components {
-  .all-\[unset\] {
-    all: unset;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-width: 0;
   }
-
-  .font-heading-xl {
-    font-family: var(--heading-xl-font-family);
-    font-size: var(--heading-xl-font-size);
-    font-weight: var(--heading-xl-font-weight);
-    line-height: var(--heading-xl-line-height);
-    letter-spacing: var(--heading-xl-letter-spacing);
-  }
-
-  .font-heading-lg {
-    font-family: var(--heading-l-font-family);
-    font-size: var(--heading-l-font-size);
-    font-weight: var(--heading-l-font-weight);
-    line-height: var(--heading-l-line-height);
-    letter-spacing: var(--heading-l-letter-spacing);
-  }
-
-  .font-heading-md {
-    font-family: var(--heading-md-font-family);
-    font-size: var(--heading-md-font-size);
-    font-weight: var(--heading-md-font-weight);
-    line-height: var(--heading-md-line-height);
-    letter-spacing: var(--heading-md-letter-spacing);
-  }
-
-  .font-heading-sm {
-    font-family: var(--heading-sm-font-family);
-    font-size: var(--heading-sm-font-size);
-    font-weight: var(--heading-sm-font-weight);
-    line-height: var(--heading-sm-line-height);
-    letter-spacing: var(--heading-sm-letter-spacing);
-  }
-
-  .font-heading-xs {
-    font-family: var(--heading-xs-font-family);
-    font-size: var(--heading-xs-font-size);
-    font-weight: var(--heading-xs-font-weight);
-    line-height: var(--heading-xs-line-height);
-    letter-spacing: var(--heading-xs-letter-spacing);
-  }
-
-  .font-body-lg {
-    font-family: var(--body-lg-font-family);
-    font-size: var(--body-lg-font-size);
-    font-weight: var(--body-lg-font-weight);
-    line-height: var(--body-lg-line-height);
-    letter-spacing: var(--body-lg-letter-spacing);
-  }
-
-  .font-body-md {
-    font-family: var(--body-md-font-family);
-    font-size: var(--body-md-font-size);
-    font-weight: var(--body-md-font-weight);
-    line-height: var(--body-md-line-height);
-    letter-spacing: var(--body-md-letter-spacing);
-  }
-
-  .font-body-sm {
-    font-family: var(--body-sm-font-family);
-    font-size: var(--body-sm-font-size);
-    font-weight: var(--body-sm-font-weight);
-    line-height: var(--body-sm-line-height);
-    letter-spacing: var(--body-sm-letter-spacing);
-  }
-
-  .font-label-lg {
-    font-family: var(--label-lg-font-family);
-    font-size: var(--label-lg-font-size);
-    font-weight: var(--label-lg-font-weight);
-    line-height: var(--label-lg-line-height);
-    letter-spacing: var(--label-lg-letter-spacing);
-  }
-
-  .font-label-md {
-    font-family: var(--label-md-font-family);
-    font-size: var(--label-md-font-size);
-    font-weight: var(--label-md-font-weight);
-    line-height: var(--label-md-line-height);
-    letter-spacing: var(--label-md-letter-spacing);
-  }
-
-  .font-label-sm {
-    font-family: var(--label-sm-font-family);
-    font-size: var(--label-sm-font-size);
-    font-weight: var(--label-sm-font-weight);
-    line-height: var(--label-sm-line-height);
-    letter-spacing: var(--label-sm-letter-spacing);
+  
+  body {
+    @apply leading-[normal] m-0;
   }
 }
 
@@ -136,12 +64,12 @@
   --color-primary-300: rgba(147, 197, 253, 1);
   --color-primary-400: rgba(96, 165, 250, 1);
   --color-primary-50: rgba(239, 246, 255, 1);
-  --color-primary-500: #3B82F6;
+  --color-primary-500: #3b82f6;
   --color-primary-600: rgba(37, 99, 235, 1);
   --color-primary-700: rgba(29, 78, 216, 1);
   --color-primary-800: rgba(30, 64, 175, 1);
   --color-primary-900: rgba(30, 58, 138, 1);
-  --color-primarysource: #3B82F6;
+  --color-primarysource: #3b82f6;
   --color-neutral-100: rgba(221, 221, 221, 1);
   --color-neutral-200: rgba(198, 198, 198, 1);
   --color-neutral-300: rgba(176, 176, 176, 1);
@@ -154,7 +82,7 @@
   --color-neutral-900: rgba(57, 57, 57, 1);
   --color-textdark: rgba(33, 33, 33, 1);
   --color-texthint: rgba(114, 114, 114, 1);
-  --color-primary-source: #3B82F6;
+  --color-primary-source: #3b82f6;
   --textlight: rgba(255, 255, 255, 1);
   --textprimary: rgba(59, 130, 246, 1);
   --textsuccess: rgba(41, 163, 122, 1);
@@ -177,112 +105,4 @@
   --title-sm-font-weight: 500;
   --title-sm-letter-spacing: 0.10000000149011612px;
   --title-sm-line-height: 20px;
-}
-
-:root {
-  --animate-spin: spin 1s linear infinite;
-}
-
-.animate-fade-in {
-  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
-}
-
-.animate-fade-up {
-  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
-}
-
-.animate-marquee {
-  animation: marquee var(--duration) infinite linear;
-}
-
-.animate-marquee-vertical {
-  animation: marquee-vertical var(--duration) linear infinite;
-}
-
-.animate-shimmer {
-  animation: shimmer 8s infinite;
-}
-
-.animate-spin {
-  animation: var(--animate-spin);
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(1turn);
-  }
-}
-
-@keyframes image-glow {
-  0% {
-    opacity: 0;
-    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
-  }
-
-  10% {
-    opacity: 0.7;
-    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
-  }
-
-  to {
-    opacity: 0.4;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fade-up {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes shimmer {
-
-  0%,
-  90%,
-  to {
-    background-position: calc(-100% - var(--shimmer-width)) 0;
-  }
-
-  30%,
-  60% {
-    background-position: calc(100% + var(--shimmer-width)) 0;
-  }
-}
-
-@keyframes marquee {
-  0% {
-    transform: translate(0);
-  }
-
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
-  }
-}
-
-@keyframes marquee-vertical {
-  0% {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
-  }
 }
