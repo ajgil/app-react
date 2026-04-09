@@ -4,9 +4,10 @@ import { Signup } from "./components/Signup";
 import { OTPVerification } from "./components/OTPVerification";
 import { RoleSelection } from "./components/RoleSelection";
 import { CrewOnboarding } from "../crew/onboarding/CrewOnboarding";
+import { RecruiterOnboarding } from "../recruiter/onboarding/RecruiterOnboarding";
 
 export const AuthScreen: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSuccess }) => {
-  const [currentView, setCurrentView] = useState<"login" | "signup" | "otp" | "selection" | "onboarding-crew">("login");
+  const [currentView, setCurrentView] = useState<"login" | "signup" | "otp" | "selection" | "onboarding-crew" | "onboarding-recruiter">("login");
   const [email, setEmail] = useState("user@example.com");
 
   return (
@@ -45,6 +46,8 @@ export const AuthScreen: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSu
               console.log("Rol seleccionado:", role);
               if (role === "crew") {
                 setCurrentView("onboarding-crew");
+              } else if (role === "employer") {
+                setCurrentView("onboarding-recruiter");
               } else {
                 onLoginSuccess();
               }
@@ -54,6 +57,10 @@ export const AuthScreen: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSu
 
         {currentView === "onboarding-crew" && (
           <CrewOnboarding onComplete={onLoginSuccess} />
+        )}
+
+        {currentView === "onboarding-recruiter" && (
+          <RecruiterOnboarding onComplete={onLoginSuccess} />
         )}
       </div>
     </div>

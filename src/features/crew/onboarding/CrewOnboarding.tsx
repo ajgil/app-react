@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { CVUpload } from "./components/CVUpload";
 import { CVReading } from "./components/CVReading";
 import { CVReview } from "./components/CVReview";

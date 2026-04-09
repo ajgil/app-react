@@ -1,8 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
+
   button,
   input,
   select,
@@ -14,6 +13,94 @@
 @layer components {
   .all-\[unset\] {
     all: unset;
+  }
+
+  .font-heading-xl {
+    font-family: var(--heading-xl-font-family);
+    font-size: var(--heading-xl-font-size);
+    font-weight: var(--heading-xl-font-weight);
+    line-height: var(--heading-xl-line-height);
+    letter-spacing: var(--heading-xl-letter-spacing);
+  }
+
+  .font-heading-lg {
+    font-family: var(--heading-l-font-family);
+    font-size: var(--heading-l-font-size);
+    font-weight: var(--heading-l-font-weight);
+    line-height: var(--heading-l-line-height);
+    letter-spacing: var(--heading-l-letter-spacing);
+  }
+
+  .font-heading-md {
+    font-family: var(--heading-md-font-family);
+    font-size: var(--heading-md-font-size);
+    font-weight: var(--heading-md-font-weight);
+    line-height: var(--heading-md-line-height);
+    letter-spacing: var(--heading-md-letter-spacing);
+  }
+
+  .font-heading-sm {
+    font-family: var(--heading-sm-font-family);
+    font-size: var(--heading-sm-font-size);
+    font-weight: var(--heading-sm-font-weight);
+    line-height: var(--heading-sm-line-height);
+    letter-spacing: var(--heading-sm-letter-spacing);
+  }
+
+  .font-heading-xs {
+    font-family: var(--heading-xs-font-family);
+    font-size: var(--heading-xs-font-size);
+    font-weight: var(--heading-xs-font-weight);
+    line-height: var(--heading-xs-line-height);
+    letter-spacing: var(--heading-xs-letter-spacing);
+  }
+
+  .font-body-lg {
+    font-family: var(--body-lg-font-family);
+    font-size: var(--body-lg-font-size);
+    font-weight: var(--body-lg-font-weight);
+    line-height: var(--body-lg-line-height);
+    letter-spacing: var(--body-lg-letter-spacing);
+  }
+
+  .font-body-md {
+    font-family: var(--body-md-font-family);
+    font-size: var(--body-md-font-size);
+    font-weight: var(--body-md-font-weight);
+    line-height: var(--body-md-line-height);
+    letter-spacing: var(--body-md-letter-spacing);
+  }
+
+  .font-body-sm {
+    font-family: var(--body-sm-font-family);
+    font-size: var(--body-sm-font-size);
+    font-weight: var(--body-sm-font-weight);
+    line-height: var(--body-sm-line-height);
+    letter-spacing: var(--body-sm-letter-spacing);
+  }
+
+  .font-label-lg {
+    font-family: var(--label-lg-font-family);
+    font-size: var(--label-lg-font-size);
+    font-weight: var(--label-lg-font-weight);
+    line-height: var(--label-lg-line-height);
+    letter-spacing: var(--label-lg-letter-spacing);
+  }
+
+  .font-label-md {
+    font-family: var(--label-md-font-family);
+    font-size: var(--label-md-font-size);
+    font-weight: var(--label-md-font-weight);
+    line-height: var(--label-md-line-height);
+    letter-spacing: var(--label-md-letter-spacing);
+  }
+
+  .font-label-sm {
+    font-family: var(--label-sm-font-family);
+    font-size: var(--label-sm-font-size);
+    font-weight: var(--label-sm-font-weight);
+    line-height: var(--label-sm-line-height);
+    letter-spacing: var(--label-sm-letter-spacing);
   }
 }
 
@@ -47,8 +134,7 @@
   --focus-state-danger-active-shadow: 0px 0px 0px 4px rgba(183, 19, 26, 0.48);
   --focus-state-neutral-active-shadow: 0px 0px 0px 4px rgba(33, 33, 33, 0.48);
   --focus-state-primary-active-shadow: 0px 0px 0px 4px rgba(97, 58, 245, 0.48);
-  --focus-state-secondary-active-shadow: 0px 0px 0px 4px
-    rgba(147, 139, 182, 0.48);
+  --focus-state-secondary-active-shadow: 0px 0px 0px 4px rgba(147, 139, 182, 0.48);
   --focus-state-success-active-shadow: 0px 0px 0px 4px rgba(60, 151, 24, 0.48);
   --focus-state-warning-active-shadow: 0px 0px 0px 4px rgba(183, 114, 36, 0.48);
   --heading-l-font-family: "Noto Sans", Helvetica;
@@ -128,12 +214,9 @@
   --primary-900: rgba(30, 58, 138, 1);
   --primarysource: rgba(59, 130, 246, 1);
   --secondary-50: rgba(244, 243, 249, 1);
-  --shadow-lg: 0px 12px 16px -4px rgba(33, 33, 33, 0.08), 0px 4px 6px -2px
-    rgba(33, 33, 33, 0.03);
-  --shadow-md: 0px 2px 8px -2px rgba(33, 33, 33, 0.04), 0px 6px 8px -2px
-    rgba(33, 33, 33, 0.2);
-  --shadow-s: 0px 1px 3px 1px rgba(33, 33, 33, 0.1), 0px 4px 4px 0px
-    rgba(33, 33, 33, 0.12);
+  --shadow-lg: 0px 12px 16px -4px rgba(33, 33, 33, 0.08), 0px 4px 6px -2px rgba(33, 33, 33, 0.03);
+  --shadow-md: 0px 2px 8px -2px rgba(33, 33, 33, 0.04), 0px 6px 8px -2px rgba(33, 33, 33, 0.2);
+  --shadow-s: 0px 1px 3px 1px rgba(33, 33, 33, 0.1), 0px 4px 4px 0px rgba(33, 33, 33, 0.12);
   --shadow-xl: 0px 24px 48px -12px rgba(33, 33, 33, 0.18);
   --shadow-xs: 0px 2px 3px 1px rgba(33, 33, 33, 0.12);
   --shadow-xxl: 0px 32px 64px -12px rgba(33, 33, 33, 0.14);
@@ -240,6 +323,7 @@
 }
 
 @keyframes shimmer {
+
   0%,
   90%,
   to {
