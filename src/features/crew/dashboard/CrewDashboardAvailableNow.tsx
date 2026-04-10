@@ -13,7 +13,7 @@ const CrewDashboardAvailableNow: FC = () => {
         <FrameComponent />
         
         <main className="flex-1 p-6">
-          <div className="max-w-[1200px] mx-auto flex flex-col gap-8">
+          <div className="w-full flex flex-col gap-8">
             {/* Row 1: Statistics Cards */}
             <Cards />
 
