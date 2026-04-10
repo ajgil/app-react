@@ -41,9 +41,14 @@ const ExperienceCard: FunctionComponent<ExperienceCardType> = ({
             </div>
           </div>
         </div>
-        <button className="p-2.5 rounded-lg hover:bg-blue-50 border border-gray-100 bg-white cursor-pointer transition-all">
-          <img className="w-5" src="/fluent-edit-24-regular.svg" alt="Edit" />
-        </button>
+        <div className="flex items-center gap-2">
+          <button className="p-2 rounded-lg hover:bg-blue-50 border border-transparent hover:border-blue-100 bg-transparent cursor-pointer transition-all group">
+            <img className="w-5 opacity-40 group-hover:opacity-100" src="/fluent-edit-24-regular.svg" alt="Edit" />
+          </button>
+          <button className="p-2 rounded-lg hover:bg-red-50 border border-transparent hover:border-red-100 bg-transparent cursor-pointer transition-all group">
+            <img className="w-5 opacity-40 group-hover:opacity-100" src="/Icon-Log-out.svg" style={{ filter: 'hue-rotate(150deg)' }} alt="Delete" />
+          </button>
+        </div>
       </div>
       <div className="self-stretch h-[1px] bg-gray-50" />
       <div className="self-stretch text-sm leading-relaxed text-[#727272] line-clamp-3">

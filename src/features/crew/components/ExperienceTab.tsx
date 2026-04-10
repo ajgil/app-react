@@ -5,7 +5,7 @@ const ExperienceTab: FunctionComponent = () => {
   return (
     <div className="flex flex-col animate-in fade-in duration-300">
       {/* Tab Header */}
-      <div className="w-full flex items-center justify-between p-6 gap-4 border-b border-[#f3f3f3]">
+      <div className="w-full flex items-center justify-between p-6 gap-4">
         <div className="flex flex-col gap-0.5">
           <h2 className="m-0 text-xl font-semibold text-[#393939]">Sea Experience</h2>
           <div className="text-sm tracking-[0.25px] text-[#727272]">
