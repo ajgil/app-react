@@ -8,6 +8,7 @@ import { RoleSelection } from './features/auth/components/RoleSelection';
 import { CrewOnboarding } from './features/crew/onboarding/CrewOnboarding';
 import { RecruiterOnboarding } from './features/recruiter/onboarding/RecruiterOnboarding';
 import CrewDashboardAvailableNow from './features/crew/dashboard/CrewDashboardAvailableNow';
+import CrewProfilePersonalInfoNoFreeChanges from './features/crew/profile/CrewProfilePersonalInfoNoFreeChanges';
 
 function App() {
   // Simple auth state for demo purposes
@@ -36,6 +37,10 @@ function App() {
         <Route 
           path="/dashboard/crew" 
           element={<CrewDashboardAvailableNow />} 
+        />
+        <Route 
+          path="/dashboard/crew/profile" 
+          element={<CrewProfilePersonalInfoNoFreeChanges />} 
         />
 
         {/* Fallback */}
