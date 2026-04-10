@@ -4,6 +4,7 @@ import InputField from "../components/InputField";
 import FrameComponent from "../components/FrameComponent";
 import ProfileTabs, { type ProfileTabType } from "../components/ProfileTabs";
 import ExperienceTab from "../components/ExperienceTab";
+import CertificatesTab from "../components/CertificatesTab";
 
 const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
   const [activeTab, setActiveTab] = useState<ProfileTabType>("personal");
@@ -148,8 +149,9 @@ const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
                   )}
 
                   {activeTab === "experience" && <ExperienceTab />}
+                  {activeTab === "certificates" && <CertificatesTab />}
 
-                  {activeTab !== "personal" && activeTab !== "experience" && (
+                  {activeTab !== "personal" && activeTab !== "experience" && activeTab !== "certificates" && (
                     <div className="p-20 flex flex-col items-center justify-center text-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
                       <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center">
                         <img className="w-8 opacity-40" src="/Icon-User-1.svg" />
@@ -169,5 +171,6 @@ const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
     </div>
   );
 };
+
 
 export default CrewProfilePersonalInfoNoFreeChanges;
