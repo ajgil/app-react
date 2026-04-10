@@ -5,6 +5,7 @@ import FrameComponent from "../components/FrameComponent";
 import ProfileTabs, { type ProfileTabType } from "../components/ProfileTabs";
 import ExperienceTab from "../components/ExperienceTab";
 import CertificatesTab from "../components/CertificatesTab";
+import CVDocsTab from "../components/CVDocsTab";
 
 const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
   const [activeTab, setActiveTab] = useState<ProfileTabType>("personal");
@@ -150,18 +151,7 @@ const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
 
                   {activeTab === "experience" && <ExperienceTab />}
                   {activeTab === "certificates" && <CertificatesTab />}
-
-                  {activeTab !== "personal" && activeTab !== "experience" && activeTab !== "certificates" && (
-                    <div className="p-20 flex flex-col items-center justify-center text-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                      <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center">
-                        <img className="w-8 opacity-40" src="/Icon-User-1.svg" />
-                      </div>
-                      <div className="flex flex-col gap-1">
-                        <h3 className="m-0 text-xl font-semibold text-[#212121]">Section: {activeTab.toUpperCase()}</h3>
-                        <p className="m-0 text-sm text-[#727272]">Waiting for component code...</p>
-                      </div>
-                    </div>
-                  )}
+                  {activeTab === "cv_docs" && <CVDocsTab />}
                 </div>
               </div>
             </section>
@@ -171,6 +161,7 @@ const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
     </div>
   );
 };
+
 
 
 export default CrewProfilePersonalInfoNoFreeChanges;

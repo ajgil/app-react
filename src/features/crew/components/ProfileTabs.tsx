@@ -1,6 +1,6 @@
 import { type FunctionComponent } from "react";
 
-export type ProfileTabType = "personal" | "experience" | "certificates" | "cv";
+export type ProfileTabType = "personal" | "experience" | "certificates" | "cv_docs";
 
 interface ProfileTabsProps {
   activeTab: ProfileTabType;
@@ -12,7 +12,7 @@ const ProfileTabs: FunctionComponent<ProfileTabsProps> = ({ activeTab, onTabChan
     { id: "personal" as const, label: "Personal Info" },
     { id: "experience" as const, label: "Experience" },
     { id: "certificates" as const, label: "Certificates" },
-    { id: "cv" as const, label: "CV & Docs" },
+    { id: "cv_docs" as const, label: "CV & Docs" },
   ];
 
   return (
