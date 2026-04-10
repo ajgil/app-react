@@ -9,7 +9,7 @@ const FrameComponent: FunctionComponent<FrameComponentType> = ({
 }) => {
   return (
     <div
-      className={`self-stretch flex flex-col items-start justify-center pt-4 pb-0 pl-6 pr-[60px] gap-2.5 text-left text-[22px] text-[#0a0e15] font-body-lg lg:pr-[30px] lg:box-border ${className}`}
+      className={`self-stretch flex flex-col items-start justify-center pt-4 pb-0 px-6 gap-2.5 text-left text-[22px] text-[#0a0e15] font-body-lg lg:box-border ${className}`}
     >
       <div className="self-stretch flex items-center justify-between">
         <div className="flex flex-col items-start gap-0.5">

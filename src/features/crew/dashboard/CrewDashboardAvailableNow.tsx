@@ -6,302 +6,125 @@ import Card1 from "../components/Card1";
 
 const CrewDashboardAvailableNow: FC = () => {
   return (
-    <div className="w-full relative bg-[#fff] overflow-hidden flex items-start leading-[normal] tracking-[normal] text-left text-base text-[#1849d6] font-[Inter] lg:pl-5 lg:pr-5 lg:box-border">
-      <div className="h-[24px] hidden items-center gap-1.5">
-        <div className="relative leading-[22px] hidden">Text link</div>
-        <div className="relative leading-[22px] font-semibold text-[#1c1c1c] hidden">
-          Value
-        </div>
-        <div className="h-[24px] w-[24px] relative overflow-hidden shrink-0 hidden">
-          <img
-            className="absolute h-3/6 w-9/12 top-[25%] right-[12.5%] bottom-[25%] left-[12.5%] max-w-full overflow-hidden max-h-full"
-            alt=""
-            src="/Vector.svg"
-          />
-        </div>
-        <div className="relative overflow-hidden">
-          <img
-            className="absolute h-[55%] w-[30%] top-[22.5%] right-[57.73%] bottom-[22.5%] left-[12.27%] max-w-full overflow-hidden max-h-full"
-            alt=""
-            src="/Vector1.svg"
-          />
-        </div>
-        <div className="hidden items-center justify-center text-center text-xs">
-          <div className="bg-[#e7ecfc] flex items-center justify-center py-0.5 px-1.5 gap-0.5">
-            <div className="h-[16px] w-[16px] relative overflow-hidden shrink-0 hidden">
-              <img
-                className="absolute h-[83.13%] w-[83.13%] top-[8.13%] right-[8.75%] bottom-[8.75%] left-[8.13%] max-w-full overflow-hidden max-h-full"
-                alt=""
-                src="/Vector2.svg"
-              />
-            </div>
-            <div className="relative leading-[18px] font-semibold shrink-0">
-              Badges
-            </div>
-            <div className="h-[16px] w-[16px] relative overflow-hidden shrink-0 hidden">
-              <img
-                className="absolute h-[83.13%] w-[83.13%] top-[8.13%] right-[8.75%] bottom-[8.75%] left-[8.13%] max-w-full overflow-hidden max-h-full"
-                alt=""
-                src="/Vector2.svg"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="h-[20px] w-[33.3px] relative hidden">
-          <img
-            className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full"
-            alt=""
-            src="/Background.svg"
-          />
-          <img
-            className="absolute h-[86.5%] w-[51.95%] top-[6.5%] right-[3.9%] bottom-[7%] left-[44.14%] shadow-[0px_3px_12px_rgba(33,_33,_33,_0.04),_0px_3px_15px_rgba(33,_33,_33,_0.1)] max-w-full overflow-hidden max-h-full"
-            alt=""
-            src="/Knob.svg"
-          />
-        </div>
-      </div>
-      <div className="h-[1px] w-[673px] relative hidden max-w-full">
-        <div className="absolute w-full top-[100%] right-[0%] left-[0%] border-[#efefef] border-solid border-t-[1px] box-border h-0" />
-      </div>
-      <SidebarOpen />
-      <main className="flex-1 flex flex-col items-start gap-[26px] max-w-[calc(100%_-_260px)] lg:max-w-full">
+    <div className="w-full min-h-screen bg-[#fff] flex overflow-x-hidden leading-[normal] tracking-[normal] text-left text-base text-[#1849d6] font-[Inter]">
+      <SidebarOpen className="fixed left-0 top-0 h-full z-50" />
+      
+      <div className="flex-1 ml-[260px] flex flex-col min-h-screen">
         <FrameComponent />
         
-        {/* Row 1: Cards - 100% width */}
-        <section className="w-[1144px] flex items-start py-0 px-6 box-border max-w-full">
-          <Cards />
-        </section>
+        <main className="flex-1 p-6">
+          <div className="max-w-[1200px] mx-auto flex flex-col gap-8">
+            {/* Row 1: Statistics Cards */}
+            <Cards />
 
-        {/* Row 2: Split 80% / 20% */}
-        <section className="w-[1144px] flex items-start py-0 px-6 box-border max-w-full">
-          <div className="flex-1 flex items-start gap-6 max-w-full lg:flex-wrap">
-            {/* Main Content Column - 8 Columns (80%) */}
-            <section className="flex-[8] flex flex-col items-start gap-8 min-w-[494px] max-w-full text-left text-sm text-[#393939] font-body-lg sm:gap-4 sm:min-w-full">
-              <div className="self-stretch h-[200px] rounded-xl bg-[rgba(41,163,122,0.08)] border-[rgba(41,163,122,0.5)] border-solid border-[1px] box-border flex flex-col items-start py-[26px] px-[27px]">
-                <div className="self-stretch flex flex-col items-start gap-5">
-                  <div className="self-stretch flex items-center justify-between gap-5 text-lg sm:flex-wrap sm:gap-5">
-                    <div className="flex items-center gap-4">
-                      <img
-                        className="cursor-pointer [border:none] p-0 bg-[transparent] w-[48px] relative rounded-lg max-h-full"
-                        alt=""
-                        src="/gg-check-o.svg"
-                      />
-                      <div className="flex flex-col items-start gap-0.5">
-                        <div className="self-stretch flex flex-col items-start">
-                          <div className="relative leading-6 font-semibold">
-                            Available Now
-                          </div>
-                        </div>
-                        <div className="self-stretch flex items-center gap-1 text-sm text-[#29a37a]">
-                          <img
-                            className="w-[16px] relative max-h-full"
-                            alt=""
-                            src="/proicons-clock.svg"
-                          />
-                          <div className="relative tracking-[0.25px] leading-5">
-                            Expires in 15 days
+            {/* Row 2: Grid 9 / 3 */}
+            <div className="grid grid-cols-12 gap-8 w-full">
+              {/* Main Content Column - 9 Columns (75%) */}
+              <div className="col-span-9 flex flex-col gap-8 mq1050:col-span-12">
+                {/* Available Now Card */}
+                <div className="self-stretch rounded-xl bg-[rgba(41,163,122,0.08)] border-[rgba(41,163,122,0.5)] border-solid border-[1px] flex flex-col py-[26px] px-[27px]">
+                  <div className="flex flex-col gap-5">
+                    <div className="flex items-center justify-between gap-5 text-lg">
+                      <div className="flex items-center gap-4">
+                        <img className="w-[48px] h-[48px] rounded-lg" alt="" src="/gg-check-o.svg" />
+                        <div className="flex flex-col">
+                          <div className="text-lg font-semibold text-[#393939]">Available Now</div>
+                          <div className="flex items-center gap-1 text-sm text-[#29a37a]">
+                            <img className="w-4" src="/proicons-clock.svg" />
+                            <span className="tracking-[0.25px]">Expires in 15 days</span>
                           </div>
                         </div>
                       </div>
+                      <img className="w-10" src="/ion-switch.svg" />
                     </div>
-                    <img
-                      className="w-[40px] relative max-h-full"
-                      alt=""
-                      src="/ion-switch.svg"
-                    />
-                  </div>
-                  <div className="self-stretch relative tracking-[0.25px] leading-5 text-[#727272]">
-                    You're visible to recruiters and captains. Status will
-                    auto-hide on 3 Feb 2026.
-                  </div>
-                  <div className="flex items-center gap-3 text-center text-[#29a37a] sm:flex-wrap">
-                    <div className="rounded-[50px] bg-[rgba(41,163,122,0.12)] flex flex-col items-center justify-center py-2 px-3">
-                      <div className="w-full flex items-center gap-2 max-w-full">
-                        <div className="h-[8px] w-[8px] relative rounded-[50%] bg-[#29a37a]" />
-                        <div className="relative tracking-[0.1px] leading-5 font-medium">
-                          Status: Visible
-                        </div>
+                    <div className="text-sm font-body-lg text-[#727272] tracking-[0.25px]">
+                      You're visible to recruiters and captains. Status will auto-hide on 3 Feb 2026.
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="rounded-full bg-[rgba(41,163,122,0.12)] py-2 px-3 flex items-center gap-2">
+                        <div className="h-2 w-2 rounded-full bg-[#29a37a]" />
+                        <span className="text-sm font-medium text-[#29a37a]">Status: Visible</span>
+                      </div>
+                      <div className="rounded-full bg-[#fff] border border-[#f3f3f3] py-2 px-3 flex items-center gap-2">
+                        <img className="w-4" src="/basil-location-outline.svg" />
+                        <span className="text-sm font-medium text-[#212121]">Mediterranean</span>
                       </div>
                     </div>
-                    <button className="cursor-pointer [border:none] py-2 px-3 bg-[#fff] rounded-[50px] flex flex-col items-center justify-center">
-                      <div className="w-full flex items-center gap-2 max-w-full">
-                        <img
-                          className="w-[16px] relative max-h-full"
-                          alt=""
-                          src="/basil-location-outline.svg"
-                        />
-                        <div className="relative text-sm tracking-[0.1px] leading-5 font-medium font-body-lg text-[#212121] text-center">
-                          Mediterranean
-                        </div>
-                      </div>
+                  </div>
+                </div>
+
+                {/* AI-Suggested Jobs Section */}
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <img className="w-6" src="/si-ai-alt-1-line.svg" />
+                      <h3 className="m-0 text-xl font-semibold text-[#212121]">AI-Suggested Jobs</h3>
+                    </div>
+                    <button className="flex items-center gap-2 bg-transparent border-none cursor-pointer">
+                      <span className="text-sm text-[#3a364f]">View All</span>
+                      <img className="w-4 rotate-180" src="/ic-twotone-arrow-back.svg" />
                     </button>
                   </div>
+                  <div className="flex flex-col gap-4">
+                    <Card1 chiefStewardess="Chief Stewardess" mYSerenity="M/Y Serenity" match="95% match" basillocationOutline="/basil-location-outline.svg" monaco="Monaco" feb2026="Feb 2026" solarwalletOutline="/solar-wallet-outline.svg" mo="€5,500/mo" />
+                    <Card1 chiefStewardess="Deckhand" mYSerenity="S/Y Ocean Spirit" match="88% match" basillocationOutline="/basil-location-outline.svg" monaco="Palma de Mallorca" feb2026="Mar 2026" solarwalletOutline="/solar-wallet-outline.svg" mo="€3,200/mo" />
+                  </div>
                 </div>
               </div>
 
-              <div className="self-stretch flex flex-col items-start gap-4 text-xl text-[#212121]">
-                <div className="self-stretch flex items-center justify-between gap-5 sm:flex-wrap sm:gap-5">
-                  <div className="flex items-center gap-[11px]">
-                    <img
-                      className="cursor-pointer [border:none] p-0 bg-[transparent] w-[24px] relative max-h-full"
-                      alt=""
-                      src="/si-ai-alt-1-line.svg"
-                    />
-                    <h3 className="m-0 relative text-[length:inherit] leading-6 font-semibold font-[inherit] sm:text-base sm:leading-[19px]">
-                      AI-Suggested Jobs
-                    </h3>
-                  </div>
-                  <button className="cursor-pointer [border:none] py-1.5 px-3 bg-[transparent] rounded-lg flex items-center gap-2">
-                    <div className="relative text-sm tracking-[0.25px] leading-5 font-body-lg text-[#3a364f] text-left">
-                      View All
+              {/* Right Side Column - 3 Columns (25%) */}
+              <div className="col-span-3 flex flex-col gap-7 mq1050:col-span-12">
+                {/* 1. Profile Completion */}
+                <div className="shadow-md rounded-xl bg-white border border-[#f3f3f3] p-6 flex flex-col gap-6">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-semibold text-[#393939]">Profile Completion</span>
+                      <span className="text-lg font-semibold text-[#1d4ed8]">60%</span>
                     </div>
-                    <img
-                      className="w-[16px] relative max-h-full object-contain"
-                      alt=""
-                      src="/ic-twotone-arrow-back.svg"
-                    />
-                  </button>
+                    <div className="w-full h-1.5 rounded-full bg-[#f4f3f9] overflow-hidden">
+                      <div className="h-full w-[60%] [background:linear-gradient(91.66deg,_#3b82f6,_#1d4ed8)]" />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3 text-sm text-[#5e5e5e]">
+                    <div className="flex items-center gap-2"><img className="w-4" src="/mdi-tick-circle.svg" />Basic Info</div>
+                    <div className="flex items-center gap-2"><img className="w-4" src="/mdi-tick-circle.svg" />Experience</div>
+                    <div className="flex items-center gap-2"><img className="w-4" src="/mdi-tick-circle.svg" />Certificates</div>
+                    <div className="flex items-center gap-2"><img className="w-4" src="/material-symbols-light-circle-outline.svg" />Documents</div>
+                    <div className="flex items-center gap-2"><img className="w-4" src="/material-symbols-light-circle-outline.svg" />CV Review</div>
+                  </div>
                 </div>
-                <div className="self-stretch flex flex-col items-start gap-4">
-                  <Card1
-                    chiefStewardess="Chief Stewardess"
-                    mYSerenity="M/Y Serenity"
-                    match="95% match"
-                    basillocationOutline="/basil-location-outline.svg"
-                    monaco="Monaco"
-                    feb2026="Feb 2026"
-                    solarwalletOutline="/solar-wallet-outline.svg"
-                    mo="€5,500/mo"
-                  />
-                  <Card1
-                    chiefStewardess="Deckhand"
-                    mYSerenity="S/Y Ocean Spirit"
-                    match="88% match"
-                    basillocationOutline="/basil-location-outline.svg"
-                    monaco="Palma de Mallorca"
-                    feb2026="Mar 2026"
-                    solarwalletOutline="/solar-wallet-outline.svg"
-                    mo="€3,200/mo"
-                  />
-                </div>
-              </div>
-            </section>
 
-            {/* Right Side Column - 2 Columns (20%) */}
-            <section className="flex-[2] flex flex-col items-start gap-7 text-left text-lg text-[#393939] font-body-lg min-w-[240px] lg:flex-1">
-              <div className="self-stretch shadow-[2px_2px_8px_1px_rgba(33,_33,_33,_0.08)] rounded-xl bg-[#fff] border-[#f3f3f3] border-solid border-[1px] box-border flex flex-col items-start py-[26px] px-[27px] gap-6">
-                <div className="self-stretch flex flex-col items-start gap-2">
-                  <div className="self-stretch flex items-center justify-between gap-2">
-                    <div className="relative leading-6 font-semibold text-sm">
-                      Profile Completion
-                    </div>
-                    <div className="relative text-lg leading-7 font-semibold text-[#1d4ed8]">
-                      60%
-                    </div>
-                  </div>
-                  <div className="self-stretch h-[6px] rounded-[99px] bg-[#f4f3f9] overflow-hidden flex items-start">
-                    <div className="h-full w-[60%] relative [background:linear-gradient(91.66deg,_#3b82f6,_#1d4ed8)]" />
-                  </div>
-                </div>
-                <div className="self-stretch flex flex-col items-start gap-3 text-sm text-[#5e5e5e]">
-                  <div className="flex items-center gap-[7px]">
-                    <img
-                      className="w-[18px] relative max-h-full"
-                      loading="lazy"
-                      alt=""
-                      src="/mdi-tick-circle.svg"
-                    />
-                    <div className="relative tracking-[0.5px] leading-5">
-                      Basic Info
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-[7px]">
-                    <img
-                      className="w-[18px] relative max-h-full"
-                      loading="lazy"
-                      alt=""
-                      src="/mdi-tick-circle.svg"
-                    />
-                    <div className="relative tracking-[0.5px] leading-5">
-                      Experience
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-[7px]">
-                    <img
-                      className="w-[18px] relative max-h-full"
-                      loading="lazy"
-                      alt=""
-                      src="/mdi-tick-circle.svg"
-                    />
-                    <div className="relative tracking-[0.5px] leading-5">
-                      Certificates
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-[7px]">
-                    <img
-                      className="w-[18px] relative max-h-full"
-                      loading="lazy"
-                      alt=""
-                      src="/material-symbols-light-circle-outline.svg"
-                    />
-                    <div className="relative tracking-[0.5px] leading-5">
-                      Documents
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="self-stretch shadow-[2px_2px_8px_1px_rgba(33,_33,_33,_0.08)] rounded-xl [background:linear-gradient(91.66deg,_#3b82f6,_#1d4ed8)] border-[#f3f3f3] border-solid border-[1px] box-border flex flex-col items-start py-[22px] px-[23px] gap-5 text-[#fff]">
-                <div className="flex items-center gap-3">
-                  <img
-                    className="w-[32px] relative rounded-lg max-h-full"
-                    loading="lazy"
-                    alt=""
-                    src="/si-ai-alt-1-line.svg"
-                  />
-                  <div className="flex flex-col items-start">
-                    <div className="relative leading-5 font-semibold text-sm">
-                      Maria AI
-                    </div>
-                    <div className="relative text-[10px] tracking-[0.4px] leading-3 text-[#dedbec]">
-                      AI Advisor
-                    </div>
-                  </div>
-                </div>
-                <div className="self-stretch text-xs tracking-[0.25px] leading-4 text-[#f3f3f3]">
-                  I've reviewed your profile and have some suggestions...
-                </div>
-                <button className="cursor-pointer [border:none] py-2 px-3 bg-[#1e40af] self-stretch shadow-[0px_8px_16px_rgba(143,_149,_178,_0.15)] rounded-lg flex items-center justify-center box-border hover:bg-[#4566d6]">
-                  <div className="relative text-xs tracking-[0.1px] leading-4 font-medium font-body-lg text-[#fff] text-left">
-                    Chat with Maria
-                  </div>
-                </button>
-              </div>
-
-              <div className="self-stretch shadow-[2px_2px_8px_1px_rgba(33,_33,_33,_0.08)] rounded-xl bg-[#fff] border-[#f3f3f3] border-solid border-[1px] box-border flex flex-col items-start py-[22px] px-[23px] gap-4">
-                <div className="relative text-sm leading-5 font-semibold">
-                  Upcoming
-                </div>
-                <div className="self-stretch flex flex-col items-start gap-4 text-xs">
+                {/* 2. Maria AI Advisor */}
+                <div className="shadow-md rounded-xl [background:linear-gradient(91.66deg,_#3b82f6,_#1d4ed8)] p-6 flex flex-col gap-5 text-white">
                   <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-lg bg-[#f4f3f9] flex items-center justify-center shrink-0">
-                      <img className="w-5 h-5" alt="" src="/Frame-1321318549.svg" />
+                    <img className="w-8 rounded-lg" src="/si-ai-alt-1-line.svg" />
+                    <div>
+                      <div className="text-sm font-semibold">Maria AI</div>
+                      <div className="text-[10px] text-blue-100">AI Advisor</div>
                     </div>
-                    <div className="flex flex-col items-start">
-                      <div className="relative font-medium leading-4">
-                        Interview
-                      </div>
-                      <div className="relative text-[10px] text-[#727272]">
-                        Tomorrow
-                      </div>
+                  </div>
+                  <p className="m-0 text-xs leading-4">I've reviewed your profile and have some suggestions for you...</p>
+                  <button className="w-full py-2 bg-[#1e40af] text-white text-xs font-semibold rounded-lg border-none cursor-pointer hover:bg-blue-900">Chat with Maria</button>
+                </div>
+
+                {/* 3. Upcoming */}
+                <div className="shadow-md rounded-xl bg-white border border-[#f3f3f3] p-6 flex flex-col gap-4">
+                  <span className="text-sm font-semibold text-[#393939]">Upcoming</span>
+                  <div className="flex items-center gap-3">
+                    <div className="h-8 w-8 rounded-lg bg-[#f4f3f9] flex items-center justify-center">
+                      <img className="w-5" src="/Frame-1321318549.svg" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs font-medium">Interview</span>
+                      <span className="text-[10px] text-[#727272]">Tomorrow</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
           </div>
-        </section>
-      </main>
+        </main>
+      </div>
     </div>
   );
 };

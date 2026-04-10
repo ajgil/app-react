@@ -9,7 +9,7 @@ const SidebarOpen: FunctionComponent<SidebarOpenType> = ({
 }) => {
   return (
     <section
-      className={`h-[1083px] w-[260px] rounded-xl bg-[#fff] border-[#ddd] border-solid border-r-[1px] box-border flex flex-col items-start pt-4 px-[23px] pb-6 gap-4 text-left text-[10px] text-[#727272] font-[Inter] mq1050:hidden ${className}`}
+      className={`w-[260px] bg-[#fff] border-[#ddd] border-solid border-r-[1px] box-border flex flex-col items-start pt-4 px-[23px] pb-6 gap-4 text-left text-[10px] text-[#727272] font-[Inter] mq1050:hidden ${className}`}
     >
       <div className="w-[197px] flex items-start py-[5.5px] px-0 box-border gap-4 text-2xl text-[#062046]">
         <button className="cursor-pointer [border:none] p-0 bg-[transparent] h-[33px] w-[26px] relative">
