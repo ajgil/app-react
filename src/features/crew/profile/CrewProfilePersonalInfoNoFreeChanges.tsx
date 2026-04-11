@@ -7,12 +7,17 @@ import ExperienceTab from "../components/ExperienceTab";
 import CertificatesTab from "../components/CertificatesTab";
 import CVDocsTab from "../components/CVDocsTab";
 import ChangeLocationModal from "../components/ChangeLocationModal";
+import UpgradePremiumModal from "../components/UpgradePremiumModal";
+
 
 
 const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
   const [activeTab, setActiveTab] = useState<ProfileTabType>("personal");
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+  const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
   const [currentLocation, setCurrentLocation] = useState("Antibes, France");
+  const [remainingChanges, setRemainingChanges] = useState(0); // Set to 0 to show the Premium Modal
+
 
 
   return (
@@ -129,12 +134,19 @@ const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
                             <div className="shadow-sm rounded-lg bg-[#fafafa] border border-[#f3f3f3] py-2 px-[13px] flex items-center justify-between gap-2">
                               <span className="text-[#868686]">{currentLocation}</span>
                               <button 
-                                onClick={() => setIsLocationModalOpen(true)}
+                                onClick={() => {
+                                  if (remainingChanges > 0) {
+                                    setIsLocationModalOpen(true);
+                                  } else {
+                                    setIsUpgradeModalOpen(true);
+                                  }
+                                }}
                                 className="py-1 px-3 bg-[#dbeafe] text-[#2563eb] text-sm font-medium rounded-md border-none cursor-pointer hover:bg-blue-100 transition-colors"
                               >
                                 Change
                               </button>
                             </div>
+
 
                             <div className="flex items-center gap-1 text-xs text-[#e1a613]">
                               <img className="w-4" src="/material-symbols-light-crown-outline.svg" />
@@ -178,9 +190,19 @@ const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
           setIsLocationModalOpen(false);
         }}
         currentLocation={currentLocation}
-        remainingChanges={2}
+        remainingChanges={remainingChanges}
+      />
+
+      <UpgradePremiumModal 
+        isOpen={isUpgradeModalOpen}
+        onClose={() => setIsUpgradeModalOpen(false)}
+        onUpgrade={() => {
+          setRemainingChanges(5); // Simulate upgrade
+          setIsUpgradeModalOpen(false);
+        }}
       />
     </div>
+
 
   );
 };
