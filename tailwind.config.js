@@ -57,6 +57,7 @@ export default {
         textprimary: "var(--color-textprimary)",
         textsuccess: "var(--color-textsuccess)",
         textwarning: "var(--color-textwarning)",
+        hint: "#727272",
       },
       fontFamily: {
         "body-lg": "var(--body-lg-font-family)",

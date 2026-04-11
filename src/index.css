@@ -18,6 +18,7 @@
   --font-title-lg: var(--title-lg-font-family);
   --font-title-md: var(--title-md-font-family);
   --font-title-sm: var(--title-sm-font-family);
+  --color-hint: rgb(114 114 114);
 }
 
 @layer base {
@@ -82,6 +83,7 @@
   --color-neutral-900: rgba(57, 57, 57, 1);
   --color-textdark: rgba(33, 33, 33, 1);
   --color-texthint: rgba(114, 114, 114, 1);
+  --hint: #727272;
   --color-primary-source: #3b82f6;
   --textlight: rgba(255, 255, 255, 1);
   --textprimary: rgba(59, 130, 246, 1);

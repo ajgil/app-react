@@ -6,9 +6,14 @@ import ProfileTabs, { type ProfileTabType } from "../components/ProfileTabs";
 import ExperienceTab from "../components/ExperienceTab";
 import CertificatesTab from "../components/CertificatesTab";
 import CVDocsTab from "../components/CVDocsTab";
+import ChangeLocationModal from "../components/ChangeLocationModal";
+
 
 const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
   const [activeTab, setActiveTab] = useState<ProfileTabType>("personal");
+  const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+  const [currentLocation, setCurrentLocation] = useState("Antibes, France");
+
 
   return (
     <div className="w-full min-h-screen bg-[#fff] flex overflow-x-hidden leading-[normal] tracking-[normal] text-left text-base text-[#1849d6] font-[Inter]">
@@ -56,7 +61,7 @@ const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
                       </div>
                       <div className="py-1 px-3 bg-[#eff6ff] rounded-2xl flex items-center gap-1">
                         <img className="w-4" src="/basil-location-outline.svg" />
-                        <span className="text-sm font-medium text-[#2563eb]">Antibes, France</span>
+                        <span className="text-sm font-medium text-[#2563eb]">{currentLocation}</span>
                       </div>
                     </div>
                   </div>
@@ -122,9 +127,15 @@ const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
                           <label className="text-sm font-medium text-[#212121]">Current Location</label>
                           <div className="flex flex-col gap-1">
                             <div className="shadow-sm rounded-lg bg-[#fafafa] border border-[#f3f3f3] py-2 px-[13px] flex items-center justify-between gap-2">
-                              <span className="text-[#868686]">Antibes, France</span>
-                              <button className="py-1 px-3 bg-[#dbeafe] text-[#2563eb] text-sm font-medium rounded-md border-none cursor-pointer">Change</button>
+                              <span className="text-[#868686]">{currentLocation}</span>
+                              <button 
+                                onClick={() => setIsLocationModalOpen(true)}
+                                className="py-1 px-3 bg-[#dbeafe] text-[#2563eb] text-sm font-medium rounded-md border-none cursor-pointer hover:bg-blue-100 transition-colors"
+                              >
+                                Change
+                              </button>
                             </div>
+
                             <div className="flex items-center gap-1 text-xs text-[#e1a613]">
                               <img className="w-4" src="/material-symbols-light-crown-outline.svg" />
                               <span>Upgrade to change location</span>
@@ -158,7 +169,19 @@ const CrewProfilePersonalInfoNoFreeChanges: FunctionComponent = () => {
           </div>
         </main>
       </div>
+
+      <ChangeLocationModal 
+        isOpen={isLocationModalOpen}
+        onClose={() => setIsLocationModalOpen(false)}
+        onUpdate={(newLoc) => {
+          setCurrentLocation(newLoc);
+          setIsLocationModalOpen(false);
+        }}
+        currentLocation={currentLocation}
+        remainingChanges={2}
+      />
     </div>
+
   );
 };
 

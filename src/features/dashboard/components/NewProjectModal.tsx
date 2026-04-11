@@ -23,7 +23,7 @@ export const NewProjectModal: React.FC<NewProjectModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-[#727272]/60 flex items-center justify-center z-50 p-4 animate-in fade-in duration-300"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
