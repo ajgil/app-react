@@ -1,12 +1,26 @@
-import { type FunctionComponent } from "react";
+import { type FunctionComponent, useState } from "react";
+import ConfirmationModal from "../../../components/common/ConfirmationModal";
 
 interface CVRowProps {
   fileName: string;
   uploadDate: string;
   fileSize: string;
+  onDelete?: () => void | Promise<void>;
 }
 
-const CVRow: FunctionComponent<CVRowProps> = ({ fileName, uploadDate, fileSize }) => {
+const CVRow: FunctionComponent<CVRowProps> = ({ fileName, uploadDate, fileSize, onDelete }) => {
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
+  const handleDeleteClick = () => {
+    setShowDeleteConfirm(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (onDelete) {
+      await onDelete();
+      setShowDeleteConfirm(false);
+    }
+  };
   return (
     <div className="w-full flex items-center justify-between p-4 bg-white border border-[#f3f3f3] rounded-xl hover:shadow-md transition-all duration-300 animate-in slide-in-from-right-4">
       <div className="flex items-center gap-4">
@@ -43,15 +57,44 @@ const CVRow: FunctionComponent<CVRowProps> = ({ fileName, uploadDate, fileSize }
         <button className="p-2 border border-gray-100 rounded-lg text-[#727272] bg-white cursor-pointer hover:bg-gray-50 transition-colors">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
         </button>
-        <button className="p-2 border-none bg-transparent cursor-pointer text-[#ef4444] hover:scale-110 transition-transform">
+        <button className="p-2 border-none bg-transparent cursor-pointer text-[#ef4444] hover:scale-110 transition-transform" onClick={handleDeleteClick}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
         </button>
       </div>
+
+      {/* Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showDeleteConfirm}
+        onClose={() => setShowDeleteConfirm(false)}
+        onConfirm={handleConfirmDelete}
+        title="Are you sure?"
+        message={`Are you sure you want to delete "${fileName}"? Please note that this action is irreversible.`}
+        confirmText="Confirm Deletion"
+        cancelText="Cancel"
+        isDangerous={true}
+      />
     </div>
   );
 };
 
 const CVDocsTab: FunctionComponent = () => {
+  const [cvFiles] = useState([
+    {
+      fileName: "John_Smith_CV_2024.pdf",
+      uploadDate: "Dec 15, 2024",
+      fileSize: "245 KB",
+    },
+    {
+      fileName: "John_Smith_CoverLetter_2024.pdf",
+      uploadDate: "Dec 10, 2024",
+      fileSize: "120 KB",
+    },
+  ]);
+
+  const handleDeleteCV = async (index: number) => {
+    // Handle CV deletion logic here
+    console.log(`Deleting CV at index ${index}`);
+  };
   return (
     <div className="flex flex-col animate-in fade-in duration-500">
       {/* Tab Header */}
@@ -72,16 +115,15 @@ const CVDocsTab: FunctionComponent = () => {
 
       {/* Docs List */}
       <div className="flex flex-col gap-4 p-6 pt-2">
-        <CVRow 
-          fileName="John_Smith_CV_2024.pdf"
-          uploadDate="Dec 15, 2024"
-          fileSize="245 KB"
-        />
-        <CVRow 
-          fileName="John_Smith_CoverLetter_2024.pdf"
-          uploadDate="Dec 10, 2024"
-          fileSize="120 KB"
-        />
+        {cvFiles.map((cv, index) => (
+          <CVRow
+            key={index}
+            fileName={cv.fileName}
+            uploadDate={cv.uploadDate}
+            fileSize={cv.fileSize}
+            onDelete={() => handleDeleteCV(index)}
+          />
+        ))}
       </div>
     </div>
   );

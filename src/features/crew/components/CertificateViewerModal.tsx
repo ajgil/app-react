@@ -1,4 +1,5 @@
-import { type FunctionComponent } from "react";
+import { type FunctionComponent, useState } from "react";
+import ConfirmationModal from "../../../components/common/ConfirmationModal";
 
 export type CertificateData = {
   id: number;
@@ -15,6 +16,7 @@ interface CertificateViewerModalProps {
   certificate: CertificateData | null;
   onNext?: () => void;
   onPrev?: () => void;
+  onDelete?: (id: number) => void | Promise<void>;
 }
 
 const CertificateViewerModal: FunctionComponent<CertificateViewerModalProps> = ({
@@ -23,7 +25,22 @@ const CertificateViewerModal: FunctionComponent<CertificateViewerModalProps> = (
   certificate,
   onNext,
   onPrev,
+  onDelete,
 }) => {
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
+  const handleDeleteClick = () => {
+    setShowDeleteConfirm(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (onDelete && certificate) {
+      await onDelete(certificate.id);
+      setShowDeleteConfirm(false);
+      onClose();
+    }
+  };
+
   if (!isOpen || !certificate) return null;
 
   return (
@@ -103,11 +120,23 @@ const CertificateViewerModal: FunctionComponent<CertificateViewerModalProps> = (
             <button className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center cursor-pointer hover:bg-gray-50 transition-colors shadow-sm group">
               <svg className="text-gray-600 group-hover:text-blue-600 transition-colors" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
             </button>
-            <button className="w-10 h-10 rounded-full bg-[#ef4444] flex items-center justify-center cursor-pointer hover:bg-red-600 transition-colors shadow-lg hover:rotate-6">
+            <button className="w-10 h-10 rounded-full bg-[#ef4444] flex items-center justify-center cursor-pointer hover:bg-red-600 transition-colors shadow-lg hover:rotate-6" onClick={handleDeleteClick}>
               <svg className="text-white" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
             </button>
           </div>
         </div>
+
+        {/* Confirmation Modal */}
+        <ConfirmationModal
+          isOpen={showDeleteConfirm}
+          onClose={() => setShowDeleteConfirm(false)}
+          onConfirm={handleConfirmDelete}
+          title="Are you sure?"
+          message={`Are you sure you want to delete the certificate "${certificate.name}"? Please note that this action is irreversible.`}
+          confirmText="Confirm Deletion"
+          cancelText="Cancel"
+          isDangerous={true}
+        />
       </div>
     </div>
   );
