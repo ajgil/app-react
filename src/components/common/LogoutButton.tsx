@@ -1,5 +1,6 @@
 import { type FunctionComponent } from "react";
 import { useLogoutModal } from "../../hooks/useLogoutModal";
+import { useToast } from "../../hooks/useToast";
 
 /**
  * LogoutButton Component
@@ -12,6 +13,7 @@ import { useLogoutModal } from "../../hooks/useLogoutModal";
  */
 const LogoutButton: FunctionComponent = () => {
   const { setShowLogoutModal, LogoutConfirmationModal } = useLogoutModal();
+  const { showInfo } = useToast();
 
   const handleLogout = async () => {
     // Implement your logout logic here
@@ -21,7 +23,7 @@ const LogoutButton: FunctionComponent = () => {
     // - Redirect to login page
     // - Clear user context/state
 
-    console.log("User logged out successfully");
+    showInfo("You have been logged out successfully");
     // Navigate to login or handle redirect
     // window.location.href = '/login';
   };

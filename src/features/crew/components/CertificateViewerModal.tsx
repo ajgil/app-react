@@ -1,5 +1,6 @@
 import { type FunctionComponent, useState } from "react";
 import ConfirmationModal from "../../../components/common/ConfirmationModal";
+import { useToast } from "../../../hooks/useToast";
 
 export type CertificateData = {
   id: number;
@@ -28,6 +29,7 @@ const CertificateViewerModal: FunctionComponent<CertificateViewerModalProps> = (
   onDelete,
 }) => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const { showSuccess, showError } = useToast();
 
   const handleDeleteClick = () => {
     setShowDeleteConfirm(true);
@@ -35,9 +37,14 @@ const CertificateViewerModal: FunctionComponent<CertificateViewerModalProps> = (
 
   const handleConfirmDelete = async () => {
     if (onDelete && certificate) {
-      await onDelete(certificate.id);
-      setShowDeleteConfirm(false);
-      onClose();
+      try {
+        await onDelete(certificate.id);
+        setShowDeleteConfirm(false);
+        showSuccess(`Certificate "${certificate.name}" deleted successfully`);
+        onClose();
+      } catch (error) {
+        showError("Failed to delete certificate");
+      }
     }
   };
 

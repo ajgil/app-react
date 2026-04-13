@@ -1,5 +1,6 @@
 import { type FunctionComponent, useState } from "react";
 import ConfirmationModal from "../../../components/common/ConfirmationModal";
+import { useToast } from "../../../hooks/useToast";
 
 interface CVRowProps {
   fileName: string;
@@ -10,6 +11,7 @@ interface CVRowProps {
 
 const CVRow: FunctionComponent<CVRowProps> = ({ fileName, uploadDate, fileSize, onDelete }) => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const { showSuccess, showError } = useToast();
 
   const handleDeleteClick = () => {
     setShowDeleteConfirm(true);
@@ -17,8 +19,13 @@ const CVRow: FunctionComponent<CVRowProps> = ({ fileName, uploadDate, fileSize, 
 
   const handleConfirmDelete = async () => {
     if (onDelete) {
-      await onDelete();
-      setShowDeleteConfirm(false);
+      try {
+        await onDelete();
+        setShowDeleteConfirm(false);
+        showSuccess(`"${fileName}" deleted successfully`);
+      } catch (error) {
+        showError("Failed to delete CV");
+      }
     }
   };
   return (
