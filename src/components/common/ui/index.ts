@@ -15,3 +15,18 @@ export type { BadgeProps, StatusBadgeProps } from "./Badge";
 
 export { Avatar, AvatarGroup } from "./Avatar";
 export type { AvatarProps, AvatarGroupProps } from "./Avatar";
+
+export { ProjectCard } from "./ProjectCard";
+export type { ProjectCardProps, ProjectStatus } from "./ProjectCard";
+
+export { QuickActions } from "./QuickActions";
+export type { QuickAction, QuickActionsProps } from "./QuickActions";
+
+export { UpgradeCard } from "./UpgradeCard";
+export type { UpgradeCardProps } from "./UpgradeCard";
+
+export { ComponentLibrary } from "./ComponentLibrary";
+export type { ComponentLibraryItem, ComponentLibraryProps } from "./ComponentLibrary";
+
+export { Tabs } from "./Tabs";
+export type { TabsProps, TabOption } from "./Tabs";

@@ -1,5 +1,5 @@
 import React from "react";
-import type { Activity, NavItem } from "../types";
+import type { Activity } from "../types";
 
 interface HeaderProps {
   activeNav: string;

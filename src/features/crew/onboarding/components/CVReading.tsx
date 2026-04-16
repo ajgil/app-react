@@ -4,14 +4,16 @@ import React, { useEffect, useState } from "react";
 // import scanFile from "./scan-file-igfugozm5t.png";
 
 interface CVReadingProps {
+  file: File;
   onComplete: () => void;
 }
 
-export const CVReading: React.FC<CVReadingProps> = ({ onComplete }) => {
+export const CVReading: React.FC<CVReadingProps> = ({ file, onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [status, setStatus] = useState("Reading professional experience...");
 
   useEffect(() => {
+    console.log(`Processing file: ${file.name}`);
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
