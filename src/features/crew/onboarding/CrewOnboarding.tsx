@@ -22,12 +22,12 @@ export const CrewOnboarding: React.FC<{ onComplete: () => void }> = ({ onComplet
         <CVUpload onContinue={handleCVUpload} />
       )}
       
-      {step === "reading" && (
-        <CVReading onComplete={handleReadingComplete} />
+      {step === "reading" && cvFile && (
+        <CVReading file={cvFile} onComplete={handleReadingComplete} />
       )}
 
-      {step === "review" && (
-        <CVReview onConfirm={onComplete} />
+      {step === "review" && cvFile && (
+        <CVReview file={cvFile} onConfirm={onComplete} />
       )}
     </div>
   );

@@ -37,7 +37,7 @@ const ExperienceCard: FunctionComponent<ExperienceCardType> = ({
             <div className="flex items-center gap-2 text-sm text-[#727272]">
               <span className="tracking-[0.1px]">{duration}</span>
               <span className="text-gray-300">|</span>
-              <span className="font-bold text-[#2563eb] text-xs">{days.toUpperCase()}</span>
+              <span className="font-bold text-[#2563eb] text-xs">{days?.toUpperCase()}</span>
             </div>
           </div>
         </div>

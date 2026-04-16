@@ -1,5 +1,4 @@
 import React from "react";
-import type { NavItem } from "../types";
 import { navItems } from "../constants";
 
 interface SidebarProps {

@@ -27,11 +27,11 @@ const RoleIcon = () => (
 );
 
 interface CVReviewProps {
-  data?: any;
+  file: File;
   onConfirm: () => void;
 }
 
-export const CVReview: React.FC<CVReviewProps> = ({ onConfirm }) => {
+export const CVReview: React.FC<CVReviewProps> = ({ file, onConfirm }) => {
   return (
     <div className="flex flex-col w-full max-w-[628px] items-center gap-10 relative animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="inline-flex flex-col items-center gap-5 relative">
@@ -49,7 +49,7 @@ export const CVReview: React.FC<CVReviewProps> = ({ onConfirm }) => {
             Review your information
           </h1>
           <p className="relative w-fit font-body-lg font-medium text-neutral-500 text-[length:var(--body-lg-font-size)] text-center">
-            Tap any field to edit. Make sure everything looks correct.
+            File: {file.name} - Tap any field to edit. Make sure everything looks correct.
           </p>
         </div>
       </div>
