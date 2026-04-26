@@ -19,7 +19,6 @@ export const useLogoutModal = (): UseLogoutModalReturn => {
         await onConfirm();
       } else {
         // Default logout behavior
-        console.log("Logging out...");
         // Add your logout logic here
         // e.g., clear localStorage, redirect to login, etc.
       }

@@ -13,7 +13,6 @@ export const CVReading: React.FC<CVReadingProps> = ({ file, onComplete }) => {
   const [status, setStatus] = useState("Reading professional experience...");
 
   useEffect(() => {
-    console.log(`Processing file: ${file.name}`);
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {

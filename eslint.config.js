@@ -19,5 +19,17 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      // High Priority: Disallow 'any' type
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      
+      // Medium Priority: Disallow console.log in production
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      
+      // React best practices
+      'react-hooks/exhaustive-deps': 'warn',
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    },
   },
 ])

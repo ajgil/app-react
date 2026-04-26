@@ -9,10 +9,18 @@ import { CrewOnboarding } from './features/crew/onboarding/CrewOnboarding';
 import { RecruiterOnboarding } from './features/recruiter/onboarding/RecruiterOnboarding';
 import CrewDashboardAvailableNow from './features/crew/dashboard/CrewDashboardAvailableNow';
 import CrewProfilePersonalInfoNoFreeChanges from './features/crew/profile/CrewProfilePersonalInfoNoFreeChanges';
+import { useAuth } from './contexts/AuthContext';
 
 function App() {
-  // Simple auth state for demo purposes
-  const isLoggedIn = true; // Temporary true to see the dashboard
+  const { isLoggedIn, isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-neutral-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+      </div>
+    );
+  }
 
   return (
     <BrowserRouter>
