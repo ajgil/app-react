@@ -20,7 +20,7 @@ export const AuthLayout: React.FC = () => {
       </div>
 
       {/* Right Side: Solid Blue Background */}
-      <div className="flex flex-1 bg-[#3B82F6] relative overflow-hidden" />
+      <div className="hidden lg:flex flex-1 bg-[#3B82F6] relative overflow-hidden" />
     </div>
   );
 };

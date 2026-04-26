@@ -3,6 +3,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600&display=swap");
 
 @theme {
+  --color-neutralsource: var(--color-neutralsource);
+  --color-primarysource: var(--color-primary-source);
+  --color-textdark: var(--color-textdark);
   --font-body-lg: var(--body-lg-font-family);
   --font-body-md: var(--body-md-font-family);
   --font-body-sm: var(--body-sm-font-family);
@@ -22,18 +25,77 @@
 }
 
 @layer base {
+
   *,
   *::before,
   *::after {
     border-width: 0;
   }
-  
+
   body {
     @apply leading-[normal] m-0;
   }
 }
 
 :root {
+  /* Heading scales */
+  --heading-xxl-font-family: "Inter", Helvetica;
+  --heading-xxl-font-size: 32px;
+  --heading-xxl-font-weight: 700;
+  --heading-xxl-letter-spacing: -0.5px;
+  --heading-xxl-line-height: 40px;
+
+  --heading-xl-font-family: "Inter", Helvetica;
+  --heading-xl-font-size: 28px;
+  --heading-xl-font-weight: 700;
+  --heading-xl-letter-spacing: -0.25px;
+  --heading-xl-line-height: 36px;
+
+  --heading-l-font-family: "Inter", Helvetica;
+  --heading-l-font-size: 24px;
+  --heading-l-font-weight: 700;
+  --heading-l-letter-spacing: 0px;
+  --heading-l-line-height: 32px;
+
+  --heading-md-font-family: "Inter", Helvetica;
+  --heading-md-font-size: 20px;
+  --heading-md-font-weight: 700;
+  --heading-md-letter-spacing: 0px;
+  --heading-md-line-height: 28px;
+
+  --heading-sm-font-family: "Inter", Helvetica;
+  --heading-sm-font-size: 16px;
+  --heading-sm-font-weight: 700;
+  --heading-sm-letter-spacing: 0px;
+  --heading-sm-line-height: 24px;
+
+  --heading-xs-font-family: "Inter", Helvetica;
+  --heading-xs-font-size: 14px;
+  --heading-xs-font-weight: 700;
+  --heading-xs-letter-spacing: 0px;
+  --heading-xs-line-height: 20px;
+
+  /* Label scales */
+  --label-lg-font-family: "Noto Sans", Helvetica;
+  --label-lg-font-size: 14px;
+  --label-lg-font-weight: 600;
+  --label-lg-letter-spacing: 0.1px;
+  --label-lg-line-height: 20px;
+
+  --label-md-font-family: "Noto Sans", Helvetica;
+  --label-md-font-size: 12px;
+  --label-md-font-weight: 600;
+  --label-md-letter-spacing: 0.5px;
+  --label-md-line-height: 16px;
+
+  --label-sm-font-family: "Noto Sans", Helvetica;
+  --label-sm-font-size: 11px;
+  --label-sm-font-weight: 600;
+  --label-sm-letter-spacing: 0.5px;
+  --label-sm-line-height: 16px;
+
+  /* Neutrals */
+  --color-neutralsource: rgba(33, 33, 33, 1);
   --body-lg-font-family: "Noto Sans", Helvetica;
   --body-lg-font-size: 16px;
   --body-lg-font-style: normal;
