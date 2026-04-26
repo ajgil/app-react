@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Ship, Ruler, Flag as FlagIcon, Globe, ChevronDown, CheckCircle } from "lucide-react";
 import yachtIllustration from "../../../../assets/yacht_illustration.png";
+import type { YachtData } from "../../../../types/recruiter";
 
 const flagOptions = [
   "United States", "United Kingdom", "France", "Germany", "Italy", "Spain",
@@ -10,7 +11,7 @@ const flagOptions = [
 ];
 
 interface YachtSetupProps {
-  onContinue: (data: any) => void;
+  onContinue: (data: YachtData) => void;
 }
 
 export const YachtSetup: React.FC<YachtSetupProps> = ({ onContinue }) => {

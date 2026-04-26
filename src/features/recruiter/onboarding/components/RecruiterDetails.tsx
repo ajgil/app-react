@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { User, Briefcase, Phone, Mail, ChevronDown, UserCircle } from "lucide-react";
+import type { RecruiterData } from "../../../../types/recruiter";
 
 interface RecruiterDetailsProps {
-  onContinue: (data: any) => void;
+  onContinue: (data: RecruiterData) => void;
   onBack: () => void;
 }
 

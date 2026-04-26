@@ -1,32 +1,22 @@
 import React, { useState } from "react";
 import { YachtSetup } from "./components/YachtSetup";
 import { RecruiterDetails } from "./components/RecruiterDetails";
-
-type OnboardingStep = "yacht-setup" | "recruiter-details" | "done";
+import type { OnboardingFormData, YachtData, RecruiterData } from "../../types/recruiter";
 
 export const RecruiterOnboarding: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
-  const [step, setStep] = useState<OnboardingStep>("yacht-setup");
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<OnboardingFormData>({
     yacht: null,
     recruiter: null,
   });
 
-  const handleYachtSetupComplete = (yachtData: any) => {
+  const handleYachtSetupComplete = (yachtData: YachtData) => {
     setFormData((prev) => ({ ...prev, yacht: yachtData }));
-    setStep("recruiter-details");
   };
 
-  const handleRecruiterDetailsComplete = (recruiterData: any) => {
+  const handleRecruiterDetailsComplete = (recruiterData: RecruiterData) => {
     const finalData = { ...formData, recruiter: recruiterData };
-    console.log("Complete Recruiter Data:", finalData);
-    setStep("done");
+    setFormData(finalData);
     onComplete();
-  };
-
-  const handleBack = () => {
-    if (step === "recruiter-details") {
-      setStep("yacht-setup");
-    }
   };
 
   return (

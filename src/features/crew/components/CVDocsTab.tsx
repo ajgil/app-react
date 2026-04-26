@@ -23,7 +23,7 @@ const CVRow: FunctionComponent<CVRowProps> = ({ fileName, uploadDate, fileSize, 
         await onDelete();
         setShowDeleteConfirm(false);
         showSuccess(`"${fileName}" deleted successfully`);
-      } catch (error) {
+      } catch (_error) {
         showError("Failed to delete CV");
       }
     }
@@ -98,9 +98,8 @@ const CVDocsTab: FunctionComponent = () => {
     },
   ]);
 
-  const handleDeleteCV = async (index: number) => {
+  const handleDeleteCV = async (_index: number) => {
     // Handle CV deletion logic here
-    console.log(`Deleting CV at index ${index}`);
   };
   return (
     <div className="flex flex-col animate-in fade-in duration-500">

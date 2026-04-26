@@ -45,7 +45,6 @@ export const OTPVerification: React.FC = () => {
   const handleVerifyClick = () => {
     const code = otp.join("");
     if (code.length === 6) {
-      console.log("Verificando:", code);
       navigate("/auth/role-selection");
     }
   };
@@ -53,7 +52,6 @@ export const OTPVerification: React.FC = () => {
   const handleResendClick = () => {
     setOtp(["", "", "", "", "", ""]);
     inputRefs.current[0]?.focus();
-    console.log("Reenviando...");
   };
 
   const isComplete = otp.every((d) => d !== "");
