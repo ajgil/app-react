@@ -9,6 +9,7 @@ import { CrewOnboarding } from './features/crew/onboarding/CrewOnboarding';
 import { RecruiterOnboarding } from './features/recruiter/onboarding/RecruiterOnboarding';
 import CrewDashboardAvailableNow from './features/crew/dashboard/CrewDashboardAvailableNow';
 import CrewProfilePersonalInfoNoFreeChanges from './features/crew/profile/CrewProfilePersonalInfoNoFreeChanges';
+import CrewJobsMainView from './features/crew/jobs/CrewJobsMainView';
 import { useAuth } from './contexts/AuthContext';
 
 function App() {
@@ -49,6 +50,10 @@ function App() {
         <Route 
           path="/dashboard/crew/profile" 
           element={<CrewProfilePersonalInfoNoFreeChanges />} 
+        />
+        <Route 
+          path="/dashboard/crew/jobs" 
+          element={<CrewJobsMainView />} 
         />
 
         {/* Fallback */}
